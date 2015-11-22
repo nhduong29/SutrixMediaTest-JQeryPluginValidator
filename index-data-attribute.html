@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>jQuery Validator nhduong by JSON Object</title>
+		<title>jQuery Validator nhduong by Data Attribute</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/docs.css" rel="stylesheet">
 		<!-- Custom Fonts -->
@@ -18,7 +18,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand page-scroll" href="#"><span class="logo">jQuery Validator nhduong by JSON Object</span></a>
+				<a class="navbar-brand page-scroll" href="#"><span class="logo">jQuery Validator nhduong by Data Attribute</span></a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,7 +28,7 @@
 						<a href="#page-top"></a>
 					</li>
 					<li>
-						<a class="page-scroll" href="index-data-attribute.html" ><span>Validator by Data Attribute</span></a>
+						<a class="page-scroll" href="index.html"><span>Validator by JSON</span></a>
 					</li>
 					<li>
 						<a class="page-scroll" href="http://nhduong.xyz" target="_blank"><span>ABOUT ME</span></a>
@@ -46,35 +46,64 @@
 					<form id="validator" role="form">
 						<div class="form-group">
 							<label for="firstName" class="control-label">First Name (*)</label>
-							<input type="text" class="form-control " id="firstName" name="firstName" placeholder="First Name">
+							<input type="text" class="form-control " id="firstName" name="firstName" placeholder="First Name"
+								   data-required="true"
+								   data-required-message="The first name is required" >
 						</div>
 						<div class="form-group">
 							<label for="lastName" class="control-label">Last Name (*)</label>
-							<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+							<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+								   data-required="true" data-required-message="The last name is required">
 						</div>
 						<div class="form-group">
 							<label for="age" class="control-label">Age (*)</label>
-							<input type="text" class="form-control" id="age" name="age" placeholder="Age" >
+							<input type="text" class="form-control" id="age" name="age" placeholder="Age"
+								   data-required="true"
+								   data-required-message="The age is required"
+								   data-regexp="^[0-9]*$"
+								   data-regexp-message="The age must be the numeric"
+								   data-greaterthan="21"
+								   data-greaterthan-message="The value must be greater than or equal to 21">
 						</div>
 						<div class="form-group">
 							<label for="phone" class="control-label">Phone (*)</label>
-							<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+							<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number"
+								   data-required="true"
+								   data-required-message="The Phone is required"
+								   data-regexp="^[0-9]{10,}$"
+								   data-regexp-message="The phone number can only contain least 10 digits">
 						</div>
 						<div class="form-group">
 							<label for="email" class="control-label">Email (*)</label>
-							<input type="email" class="form-control" id="email" name="email" placeholder="Email" >
+							<input type="email" class="form-control" id="email" name="email" placeholder="Email"
+								   data-required="true"
+								   data-required-message="The email is required"
+								   data-regexp="^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$"
+								   data-regexp-message="Bruh, that email address is invalid">
 						</div>
 						<div class="form-group">
 							<label for="passw" class="control-label">Password (*)</label>
-							<input type="password" data-minlength="6" class="form-control" id="passw" name="passw" placeholder="Password">
+							<input type="password" data-minlength="6" class="form-control" id="passw" name="passw" placeholder="Password"
+								   data-required="true"
+								   data-required-message="The password is required"
+								   data-regexp="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+								   data-regexp-message="The password must contain at least one digit/lowercase/uppercase letter and be at least six characters long">
 						</div>
 						<div class="form-group">
 							<label for="passwConfirm" class="control-label">Password Confirm (*)</label>
-							<input type="password" class="form-control" id="passwConfirm" name="passwConfirm" placeholder="Password Confirm" >
+							<input type="password" class="form-control" id="passwConfirm" name="passwConfirm" placeholder="Password Confirm"
+								   data-required="true"
+								   data-required-message="The password is required"
+								   data-identical="passw"
+								   data-identical-message="The password confirm are not the same with the password">
 						</div>
 						<div class="form-group">
 							<label for="message" class="control-label">Message (*)</label>
-							<textarea class="form-control" name="message" id="message" rows="5"></textarea>
+							<textarea class="form-control" name="message" id="message" rows="5"
+									  data-required="true"
+									  data-required-message="The message is required"
+									  data-maxlength="100"
+									  data-maxlength-message="The message must be less than 100 characters"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="test" class="control-label">Not have validator</label>
@@ -91,5 +120,7 @@
 	</body>
 	<script src="lib/jquery/2.0.0/jquery.min.js"></script>
 	<script src="lib/boilerplate/jquery.nhduongValidator.js"></script>
-	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		$("#validator").nhduongValidator();
+	</script>
 </html>
