@@ -1,5 +1,5 @@
 # nhduongValidator v1.1
-# jQuery Plugin Validator
+# jQuery Plugin Validator supported both JSON and Data Attribute setting
 
 nhduongValidator is the jQuery plugin makes simple clientside form validation easy.
 This makeup work base on Bootsatrap 3
