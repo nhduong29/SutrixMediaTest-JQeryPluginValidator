@@ -50,7 +50,7 @@ $(function() {
                     },
                     regexp :{
                         message: 'Bruh, that email address is invalid',
-                        regexp: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+                        regexp: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
                     }
                 }
             },
