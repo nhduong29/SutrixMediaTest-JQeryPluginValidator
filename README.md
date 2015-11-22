@@ -1,13 +1,16 @@
-# nhduongValidator
+# nhduongValidator v1.1
 # jQuery Plugin Validator
 
 nhduongValidator is the jQuery plugin makes simple clientside form validation easy.
-* This makeup work base on Bootsatrap 3
-* Validate by id
+This makeup work base on Bootsatrap 3
+Validate by id
 
 ## Demo [jQuery Plugin Validator By Duong Nguyen]
 
-## Installation & Usage
+  - Type some Markdown on the left
+  - See HTML in the right
+  - Magic
+## I.Installation & Usage
 ### Step 1: Link required files
 
 > First and most important, the jQuery library needs to be included. Next, download the package from this site and link the the Javascript file "jquery.nhduongValidator.js".
@@ -23,7 +26,6 @@ nhduongValidator is the jQuery plugin makes simple clientside form validation ea
 <!-- Custom Fonts for icons -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 ```
-
 ### Step 2: Create HTML tag
 
 > This plugin work with bootstrap form. Create the form then add the input need validate
@@ -44,7 +46,7 @@ Create the input
 ```
 ### Step 3: Setup the nhduongValidator
 
-> This plugin using the Json object to setting
+#### 1. This plugin using the Json object to setting
 
 ```sh
 $("#validator").nhduongValidator(objectValidator);
@@ -70,43 +72,85 @@ $("#validator").nhduongValidator({
         }
         });
 ```
-All fields have validate will be declare inside of "fields", each field  will declare the validator inside of "validators"
+All fields have validate will be declare inside of "fiels", each field we will declare the validator inside of "validators"
+#### 2. This plugin using the data attribute to setting
+```sh
+$("#validator").nhduongValidator();
+```
+Add data attribute to config the validator:
+```sh
+<input type="email" class="form-control" id="email" name="email" placeholder="Email" data-required="true" data-required-message="The email is required" data-regexp="^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$" data-regexp-message="Bruh, that email address is invalid">
+```
 
-## Validators provide
-> I provide 5 basic validator: required, regexp, greaterThan, identical, maxLength. All of them have the  "message" key to config the messsage appear on error messages box
-* required : The value must be not empty:
+## II. Validators provide
+> I provide 5 basic validator: required, regexp, greaterThan, identical, maxLength.
+### 1. required
+* required : The value must be not empty. required have "message" key to config the messsage appear on error messages box:
+#### a)JSON config
 ```sh
 required: {
         message: "The age is required"
     }
 ```
+#### b)Data Attribute config
+```sh
+data-required="true" data-required-message="The email is required"
+```
+### 2. regexp
 * regexp : The value must be pass the "regexp"
+#### a)JSON config
 ```sh
 regexp :{
         message: 'The age must be the numeric',
         regexp: /^[0-9]*$/
     },
 ```
+#### b)Data Attribute config
+** with "\\" please replace by "\\\\" 
+```sh
+data-regexp="^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$" data-regexp-message="Bruh, that email address is invalid"
+```
+### 3. greaterThan
 * greaterThan : The value must be greater than the special "value":
+#### a)JSON config
 ```sh
 greaterThan : {
     value : 21,
     message: "The value must be greater than or equal to 21"
 }
 ```
+#### b)Data Attribute config
+```sh
+data-greaterthan="21" data-greaterthan-message="The value must be greater than or equal to 21"
+```
+
+### 4. identical
 * identical : The value must be same the special value ("withField"):
+#### a)JSON config
 ```sh
 identical :{
     withField : "passw",
     message: "The password confirm are not the same with the password"
 }
 ```
+#### b)Data Attribute config
+```sh
+data-identical="passw" data-identical-message="The password confirm are not the same with the password"
+```
+
+### 5. maxLength
 * maxLength : The field's length must be less than the value of the special value ("max") :
+
+#### a)JSON config
 ```sh
  maxLength :{
     max: 200,
     message: 'The message must be less than 200 characters'
 }
+```
+#### b)Data Attribute config
+```sh
+data-maxlength="100" data-maxlength-message="The message must be less than 100 characters"
 ```
 
 License
