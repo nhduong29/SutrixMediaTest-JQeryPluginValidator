@@ -7,9 +7,6 @@ Validate by id
 
 ## Demo [jQuery Plugin Validator By Duong Nguyen]
 
-  - Type some Markdown on the left
-  - See HTML in the right
-  - Magic
 ## I.Installation & Usage
 ### Step 1: Link required files
 
